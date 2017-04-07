@@ -76,6 +76,7 @@
     <Compile Include="Main\MainEvent.cs" />
     <Compile Include="Main\MainEventMenu.cs" />
     <Compile Include="Main\TatamiFunctions.cs" />
+    <Compile Include="Options\OptionRegim.cs" />
     <Compile Include="Options\OptionSetka.cs" />
     <Compile Include="Options\OptionColor.cs" />
     <Compile Include="Options\OptionStechki.cs" />

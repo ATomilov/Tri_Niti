@@ -42,41 +42,53 @@ namespace ТриНитиДизайн
                 for (double i = -step * 3; i < MainCanvas.ActualWidth + 0; i += (step * 3))
                     for (double j = -step * 3; j < MainCanvas.ActualHeight + 0; j += (step * 3))
                     {
-                        SetDot(new Point(i, j), "grid");
+                        SetDot(new Point(i, j));
                     }
             }
         }
 
 
-        public void SetDot(Point centerPoint, string type)         
+        public void SetDot(Point centerPoint)         
         {
             System.Windows.Shapes.Path myPath = new System.Windows.Shapes.Path();
             EllipseGeometry myEllipse = new EllipseGeometry();
             myEllipse.Center = centerPoint;
+            myPath.Stroke = System.Windows.Media.Brushes.Black;
             myEllipse.RadiusX = 0.5;
             myEllipse.RadiusY = 0.5;
-            if (type.Equals("red"))
-            {
-                myPath.Stroke = System.Windows.Media.Brushes.Red;
-                myPath.Fill = System.Windows.Media.Brushes.Red;
-            }
-            if (type.Equals("blue"))
-            {
-                myPath.Stroke = System.Windows.Media.Brushes.RoyalBlue;
-                myPath.Fill = System.Windows.Media.Brushes.LimeGreen;
-            }
-            if (type.Equals("grid"))
-            {
-                myPath.Stroke = System.Windows.Media.Brushes.Black;
-                myEllipse.RadiusX = 0.5;
-                myEllipse.RadiusY = 0.5;
-            }
-
             myPath.Data = myEllipse;
             MainCanvas.Children.Add(myPath);
         }
 
-
+        public Point FindClosestDot(Point point)
+        {
+            double step = (Double)OptionSetka.MasshtabSetka;
+            if (DrawOnDots_CheckBox.IsChecked == true)
+            {
+                Point pointOnGrid = new Point();
+                if (point.X % (step * 3) > (step * 3 / 2))
+                {
+                    pointOnGrid.X = point.X - (point.X % (step * 3)) + step * 3;
+                }
+                else
+                {
+                    pointOnGrid.X = point.X - (point.X % (step * 3));
+                }
+                if (point.Y % (step * 3) > (step * 3 / 2))
+                {
+                    pointOnGrid.Y = point.Y - (point.Y % (step * 3)) + step * 3;
+                }
+                else
+                {
+                    pointOnGrid.Y = point.Y - (point.Y % (step * 3));
+                }
+                return pointOnGrid;
+            }
+            else
+            {
+                return point;
+            }
+        }
 
 
     }

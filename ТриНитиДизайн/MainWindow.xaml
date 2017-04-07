@@ -48,7 +48,7 @@
                 <MenuItem Header="Сетка 0.5 мм" IsCheckable="True" Checked="SetItemSetka4"/>
                 <MenuItem Header="Сетка 1.0 мм" IsCheckable="True" Checked="SetItemSetka5"/>
                 <MenuItem Header="Сетка 5.0 мм" IsCheckable="True" Checked="SetItemSetka6"/>
-                <MenuItem Header="Рисовать по сетке" IsCheckable="True"/>
+                <MenuItem x:Name="DrawOnDots_CheckBox" Header="Рисовать по сетке" IsCheckable="True" />
             </MenuItem>
                 <MenuItem Header="Установки" Click="OpenSetting" />
             <MenuItem Header="Элементы" >

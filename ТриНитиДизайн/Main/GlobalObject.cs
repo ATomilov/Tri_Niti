@@ -19,14 +19,18 @@ namespace ТриНитиДизайн
 {
     public partial class MainWindow : Window
     {
-
         //Курсоры
         Cursor HandCursor;
         Cursor NormalCursor;
         double MousePositionX;
         double MousePositionY;
-
         int IndexFigure;
         List<Figure> ListFigure;
+
+        Figure ControlLine;
+        Regim CurrentRegim = Regim.RegimLomanaya;
+
+        List<Figure> ControlFigures = new List<Figure>();
+        List<Figure> TatamiFigures = new List<Figure>();
     }
 }
