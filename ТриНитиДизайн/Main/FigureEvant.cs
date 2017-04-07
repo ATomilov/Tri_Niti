@@ -50,8 +50,15 @@ namespace ТриНитиДизайн
         }
         private void StagkiButtonEvent(object sender, RoutedEventArgs e)
         {
+            if (ControlLine != null)
+            {
+                if (ControlLine.Points.Count > 2)
+                {
+                    CurrentRegim = Regim.RegimStegki;
+                    CalculateParallelLines(ControlLine.Points[2], ControlLine.Points[ControlLine.Points.Count - 1], ListFigure[IndexFigure], ControlFigures, TatamiFigures, MainCanvas);
+                }
+            }
             //Ctezhki(ListFigure[IndexFigure].Shapes, new Point(), new Point(), 1, 0,MainCanvas);
-
         }
 
         private void RisuiButtonEvent(object sender, RoutedEventArgs e)

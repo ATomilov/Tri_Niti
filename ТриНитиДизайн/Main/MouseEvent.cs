@@ -100,15 +100,50 @@ namespace ТриНитиДизайн
 
         void CanvasTest_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)          //левая кнопка мыши
         {
-            ListFigure.Add(new Figure(MainCanvas));
-            IndexFigure++;
-            for (int i = 0; i < ListFigure.Count; i++)
+            if (CurrentRegim == Regim.RegimLomanaya)
             {
-                if (i != IndexFigure)
+                ListFigure.Add(new Figure(MainCanvas));
+                IndexFigure++;
+                for (int i = 0; i < ListFigure.Count; i++)
                 {
-                    foreach (Shape sh in ListFigure[i].Shapes)
+                    if (i != IndexFigure)
                     {
-                        sh.Stroke = OptionColor.ColorSelection;
+                        foreach (Shape sh in ListFigure[i].Shapes)
+                        {
+                            sh.Stroke = OptionColor.ColorSelection;
+                        }
+                    }
+                }
+            }
+            if(CurrentRegim == Regim.RegimStegki)
+            {
+                if (e.OriginalSource is Line || e.OriginalSource is Path)                      //выделение части татами
+                {
+                    double x;
+                    double y;
+                    if (e.OriginalSource is Line)                                       //если мы нажали на линию, то находим одну из точек линии
+                    {
+                        Line clickedLine = (Line)e.OriginalSource;
+                        x = clickedLine.X1;
+                        y = clickedLine.Y1;
+                    }
+                    else
+                    {
+                        Path clickedPath = (Path)e.OriginalSource;                      //если мы нажали на точку, то находим координаты
+                        EllipseGeometry geom = (EllipseGeometry)clickedPath.Data;
+                        x = geom.Center.X;
+                        y = geom.Center.Y;
+                    }
+                    for (int i = 0; i < 128; i++)                           //находим номер фигуры, которую хотим выделить
+                    {
+                        for (int j = 0; j < TatamiFigures[i].Points.Count; j++)
+                        {
+                            if (TatamiFigures[i].Points[j].X == x && TatamiFigures[i].Points[j].Y == y)
+                            {
+                                DrawTatami(TatamiFigures, i, MainCanvas);
+                                break;
+                            }
+                        }
                     }
                 }
             }
