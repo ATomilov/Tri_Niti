@@ -50,8 +50,10 @@ namespace ТриНитиДизайн
         }
         private void StagkiButtonEvent(object sender, RoutedEventArgs e)
         {
-            Ctezhki(ListFigure[IndexFigure].Shapes, new Point(), new Point(), 1, 0,MainCanvas);
+            //Ctezhki(ListFigure[IndexFigure].Shapes, new Point(), new Point(), 1, 0,MainCanvas);
+
         }
+
         private void RisuiButtonEvent(object sender, RoutedEventArgs e)
         {
 

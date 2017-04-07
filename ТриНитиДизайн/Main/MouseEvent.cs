@@ -42,7 +42,7 @@ namespace ТриНитиДизайн
             {
                 if (CurrentRegim == Regim.RegimLomanaya)
                 {
-                    if (ListFigure[IndexFigure].Points.Count > 1)
+                    if (ListFigure[IndexFigure].Points.Count > 0)
                     {
                         MainCanvas.Children.RemoveAt(MainCanvas.Children.Count - 1);
                         Line line = ListFigure[IndexFigure].GetLine(ListFigure[IndexFigure].PointEnd, e.GetPosition(MainCanvas));
@@ -65,7 +65,7 @@ namespace ТриНитиДизайн
                     dashes.Add(2);
                     line.StrokeDashArray = dashes;
                     line.StrokeThickness = 1;
-                    line.Stroke = OptionColor.ColorDraw;
+                    line.Stroke = OptionColor.ColorSelection;
                     MainCanvas.Children.Add(line);
                     MainCanvas.UpdateLayout();
                     ControlLine.Points.Add(e.GetPosition(MainCanvas));
@@ -82,7 +82,8 @@ namespace ТриНитиДизайн
                 {
                     MainCanvas.Children.RemoveAt(MainCanvas.Children.Count - 1);
                 }
-                ListFigure[IndexFigure].AddPoint(e.GetPosition(MainCanvas));
+                Point point = FindClosestDot(e.GetPosition(MainCanvas));
+                ListFigure[IndexFigure].AddPoint(point);
             }
 
             if (CurrentRegim == Regim.RegimTatami)
@@ -107,7 +108,7 @@ namespace ТриНитиДизайн
                 {
                     foreach (Shape sh in ListFigure[i].Shapes)
                     {
-                        sh.Stroke = OptionColor.ColorDraw;
+                        sh.Stroke = OptionColor.ColorSelection;
                     }
                 }
             }

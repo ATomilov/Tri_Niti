@@ -48,7 +48,7 @@ namespace ТриНитиДизайн
             }
         }
 
-        public bool CheckForIntersection(Point a, Point b, Figure StartLines, Figure ConLine, Canvas CurCanvas, bool firstCheck, bool secondCheck)              //проверка на пересечение задающих прямых и начальных отрезков
+        private bool CheckForIntersection(Point a, Point b, Figure StartLines, Figure ConLine, Canvas CurCanvas, bool firstCheck, bool secondCheck)              //проверка на пересечение задающих прямых и начальных отрезков
         {
             List<Point> pts = new List<Point>();
 
@@ -169,10 +169,10 @@ namespace ТриНитиДизайн
             return (Math.Min(a, b) <= c) && c <= (Math.Max(a, b));
         }
 
-        public void SetLine(Point point1, Point point2, string type,Canvas CurCanvas)                //отрисовка линии, dash - через черту, red - красная, blue - синяя
+        private void SetLine(Point point1, Point point2, string type, Canvas CurCanvas)                //отрисовка линии, dash - через черту, red - красная, blue - синяя
         {
             Line shape = new Line();
-            shape.Stroke = OptionColor.ColorDraw;
+            shape.Stroke = OptionColor.ColorSelection;
             shape.StrokeThickness = 1;
             if (type.Equals("dash"))
             {
@@ -196,6 +196,8 @@ namespace ТриНитиДизайн
             shape.Y2 = point2.Y;
             CurCanvas.Children.Add(shape);
         }
+
+
 
     }
 }

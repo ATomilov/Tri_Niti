@@ -146,7 +146,7 @@ namespace ТриНитиДизайн
                 if (SelectedRectangle !=null)
                 {
                     Point point = DictionaryRecPoint[SelectedRectangle];
-                    SelectedRectangle.Stroke = OptionColor.Colorselection;
+                    SelectedRectangle.Stroke = OptionColor.ColorSelection;
 
                     Canvas.SetLeft(SelectedRectangle, e.GetPosition(canvas).X - 4);
                     Canvas.SetTop(SelectedRectangle, e.GetPosition(canvas).Y - 4);

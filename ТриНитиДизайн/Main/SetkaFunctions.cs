@@ -60,7 +60,35 @@ namespace ТриНитиДизайн
             MainCanvas.Children.Add(myPath);
         }
 
-
+        public Point FindClosestDot(Point point)
+        {
+            double step = (Double)OptionSetka.MasshtabSetka;
+            if (DrawOnDots_CheckBox.IsChecked == true)
+            {
+                Point pointOnGrid = new Point();
+                if (point.X % (step * 3) > (step * 3 / 2))
+                {
+                    pointOnGrid.X = point.X - (point.X % (step * 3)) + step * 3;
+                }
+                else
+                {
+                    pointOnGrid.X = point.X - (point.X % (step * 3));
+                }
+                if (point.Y % (step * 3) > (step * 3 / 2))
+                {
+                    pointOnGrid.Y = point.Y - (point.Y % (step * 3)) + step * 3;
+                }
+                else
+                {
+                    pointOnGrid.Y = point.Y - (point.Y % (step * 3));
+                }
+                return pointOnGrid;
+            }
+            else
+            {
+                return point;
+            }
+        }
 
 
     }

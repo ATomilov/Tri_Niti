@@ -9,8 +9,8 @@ namespace ТриНитиДизайн
     public static class OptionColor
     {
         //Color
-        public static Brush ColorDraw = Brushes.Black;
+        public static Brush ColorDraw = Brushes.Red;
         public static Brush ColorBackground = Brushes.White;
-        public static Brush Colorselection = Brushes.Red;
+        public static Brush ColorSelection = Brushes.Black;
     }
 }

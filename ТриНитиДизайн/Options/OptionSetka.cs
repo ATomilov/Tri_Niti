@@ -12,8 +12,7 @@ namespace ТриНитиДизайн
         public static double MasshtabSetka = 0;
 
         public static bool isDrawSetka  = false;
-
-
+        
         public static double Masshtab = 1;
 
         public static double Angle = 0;
