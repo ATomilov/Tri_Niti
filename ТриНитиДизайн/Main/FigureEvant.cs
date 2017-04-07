@@ -41,13 +41,16 @@ namespace ТриНитиДизайн
         }
         private void TatamiButtonEvent(object sender, RoutedEventArgs e)
         {
-
-
+            if (ListFigure[IndexFigure].Points.Count > 0)
+            {
+                CurrentRegim = Regim.RegimTatami;
+                ListFigure[IndexFigure].AddPoint(ListFigure[IndexFigure].Points[0]);
+                ControlLine = new Figure(MainCanvas);
+            }
         }
         private void StagkiButtonEvent(object sender, RoutedEventArgs e)
         {
             Ctezhki(ListFigure[IndexFigure].Shapes, new Point(), new Point(), 1, 0,MainCanvas);
-
         }
         private void RisuiButtonEvent(object sender, RoutedEventArgs e)
         {

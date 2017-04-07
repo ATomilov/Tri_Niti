@@ -34,7 +34,7 @@ namespace ТриНитиДизайн
 
         private void LomannaiButtonEvent(object sender, RoutedEventArgs e)
         {
-
+            CurrentRegim = Regim.RegimLomanaya;
 
         }
 
@@ -46,7 +46,7 @@ namespace ТриНитиДизайн
 
         private void KrivaiaButtonEvent(object sender, RoutedEventArgs e)
         {
-
+            
 
         }
 

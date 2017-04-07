@@ -25,8 +25,11 @@ namespace ТриНитиДизайн
         Cursor NormalCursor;
         double MousePositionX;
         double MousePositionY;
-
         int IndexFigure;
         List<Figure> ListFigure;
+
+        int TatamiShapesCount = 0;
+        Figure ControlLine;
+        Regim CurrentRegim = Regim.RegimLomanaya;
     }
 }

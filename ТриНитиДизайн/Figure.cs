@@ -151,8 +151,8 @@ namespace ТриНитиДизайн
                     Canvas.SetLeft(SelectedRectangle, e.GetPosition(canvas).X - 4);
                     Canvas.SetTop(SelectedRectangle, e.GetPosition(canvas).Y - 4);
 
-                    Line l1 = DictionaryPointLines[SelectedRectangle]?.Item1;
-                    Line l2 = DictionaryPointLines[SelectedRectangle]?.Item2;
+                    Line l1 = DictionaryPointLines[SelectedRectangle].Item1;
+                    Line l2 = DictionaryPointLines[SelectedRectangle].Item2;
                     if (l1 != null)
                     {
                         l1.X2 = point.X;
